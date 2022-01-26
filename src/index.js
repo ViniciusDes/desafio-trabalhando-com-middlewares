@@ -30,7 +30,7 @@ function checksCreateTodosUserAvailability(request, response, next) {
     return next();
   }
 
-  if (user.todos.length <= 10) {
+  if (user.todos.length < 10) {
     return next();
   }
 
@@ -179,7 +179,7 @@ app.delete(
 
     user.todos.splice(todoIndex, 1);
 
-    return response.status(204);
+    return response.status(204).send();
   }
 );
 
